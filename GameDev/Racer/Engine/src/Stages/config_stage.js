@@ -81,6 +81,8 @@ OverDrive.Stages.Config = (function(stage, canvas, context) {
       // Create config DOM elements
       self.createPlayer1Elements();
       self.createPlayer2Elements();
+      self.createPlayer3Elements();
+      self.createPlayer4Elements();
       
       // Create additional controls
       var acceptButton = document.createElement('button');
