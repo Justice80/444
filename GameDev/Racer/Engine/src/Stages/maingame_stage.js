@@ -311,7 +311,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
       
       self.pickupTypes['points_pickup'] = new OverDrive.Pickup.PickupType(
       {
-        spriteURI : 'Assets//Images//coin1.png',
+        spriteURI : 'Assets//Images//beer.gif',
         collisionGroup : 0,
         handler : function(collector) {
         
