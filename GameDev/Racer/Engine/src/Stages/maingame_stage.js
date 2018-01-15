@@ -316,7 +316,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
         collisionGroup : 0,
         handler : function(collector) {
         
-          collector.addPoints(50);
+          collector.addPoints(44);
         }
       } );
             
