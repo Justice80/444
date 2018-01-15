@@ -168,8 +168,8 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
 	  var track = tracks[self.trackIndex];
 	  
 	  self.ball = new OverDrive.Game.Ball( {
-                            x : track.players[1].pos.x * canvas.width,
-                            y : track.players[1].pos.y * canvas.height,
+                            x : track.ball.pos.x * canvas.width,
+                            y : track.ball.pos.y * canvas.height,
 							scale : track.ball.scale,
                             spriteURI : track.ball.ballImageURI,
                             world : overdrive.engine.world,
