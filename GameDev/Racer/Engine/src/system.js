@@ -125,7 +125,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
         
         {
           name : 'Player 2',
-          mode : gamelib.InputMode.Gamepad,
+          mode : gamelib.InputMode.Keyboard,
           keys : {
             
             forward : 'UP',
@@ -331,7 +331,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     
     this.playMusic1 = function() {
       
-      music1.play(0, self.playMusic2);
+      music1.play(0, self.playMusic1);
     }
     
     this.playMusic2 = function() {
@@ -341,7 +341,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     
     this.playMusic3 = function() {
       
-      music3.play(0, self.playMusic1);
+      music3.play(0, self.playMusic2);
     }
     
     
@@ -357,7 +357,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
       this.gainNode.connect(this.audioContext.destination);
       
       // Load sound library
-      loadDemoSoundAsync('Assets/Sounds/Kyes_music.m4a', function(buffer) {
+      loadDemoSoundAsync('Assets/Sounds/football_chant1.m4a', function(buffer) {
         
         music1 = new gamelib.AudioResource(buffer);
         
@@ -365,15 +365,19 @@ OverDrive.Game = (function(gamelib, canvas, context) {
         self.playMusic1();
       });
       
-      loadDemoSoundAsync('Assets/Sounds/Mason_and_jack.m4a', function(buffer) {
+      /*loadDemoSoundAsync('Assets/Sounds/Mason_and_jack.m4a', function(buffer) {
         
         music2 = new gamelib.AudioResource(buffer);
+
+        self.playMusic2();
       });
       
       loadDemoSoundAsync('Assets/Sounds/Kory_music.m4a', function(buffer) {
         
         music3 = new gamelib.AudioResource(buffer);
-      });
+
+        self.playMusic3();
+      });*/
     }
     
     
