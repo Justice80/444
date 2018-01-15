@@ -218,6 +218,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
       
       self.player1.pathLocation = self.path.initPathPlacement();
       self.player2.pathLocation = self.path.initPathPlacement();
+      self.ball.pathLocation = self.path.initPathPlacement();
       
       
       // Setup gravity configuration for this stage
@@ -552,6 +553,12 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
     
         self.player2.draw();
         //self.player2.drawBoundingVolume('#FFF');
+      }
+      
+      // Draw ball
+      if(self.ball){
+        
+        self.ball.draw();
       }
       
       // Render pickups
