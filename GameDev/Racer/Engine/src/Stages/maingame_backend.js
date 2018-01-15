@@ -141,7 +141,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
     
     var self = this;
     var track = tracks[self.trackIndex];
-    
+		
     self.player2 = new OverDrive.Game.Player( {
                             pid : overdrive.settings.players[1].name,
                             x : track.players[1].pos.x * canvas.width,
@@ -161,6 +161,23 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
                             },
                             postUpdate : function(player, deltaTime, env) {}
                           } );
+  }
+  
+  stage.MainGame.prototype.createBall = function() {
+	  var self = this;
+	  var track = tracks[self.trackIndex];
+	  
+	  self.ball = new OverDrive.Game.Ball( {
+                            x : track.players[1].pos.x * canvas.width,
+                            y : track.players[1].pos.y * canvas.height,
+							scale : track.ball.scale,
+                            spriteURI : track.ball.ballImageURI,
+                            world : overdrive.engine.world,
+                            mass : player_mass,
+                            boundingVolumeScale : 0.75,
+                            collisionGroup : -2
+						}	);
+		console.log('created a ball');
   }
   
   stage.MainGame.prototype.startClock = function() {

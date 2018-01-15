@@ -15,6 +15,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
     this.initialiseCamera();
     this.createPlayer1();
     this.createPlayer2();
+	this.createBall();
     this.startClock();
     
     this.startGameLoop();
