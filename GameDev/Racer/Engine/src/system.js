@@ -334,7 +334,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
       music1.play(0, self.playMusic1);
     }
     
-    this.playMusic2 = function() {
+    /*this.playMusic2 = function() {
       
       music2.play(0, self.playMusic3);
     }
@@ -342,7 +342,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     this.playMusic3 = function() {
       
       music3.play(0, self.playMusic2);
-    }
+    }*/
     
     
     this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -357,7 +357,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
       this.gainNode.connect(this.audioContext.destination);
       
       // Load sound library
-      loadDemoSoundAsync('Assets/Sounds/football_chant1.m4a', function(buffer) {
+      loadDemoSoundAsync('Assets/Sounds/football_chant1.mp3', function(buffer) {
         
         music1 = new gamelib.AudioResource(buffer);
         
