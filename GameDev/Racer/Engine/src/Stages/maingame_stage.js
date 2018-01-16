@@ -438,8 +438,8 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
     this.leaveStage = function() {
     
       // Add to leaderboard
-      overdrive.scores.push({name : self.winner.pid, score : self.winner.score});
-      overdrive.sortScores();
+      // overdrive.scores.push({name : self.winner.pid, score : self.winner.score});
+      // overdrive.sortScores();
       
       
       // Tear-down stage
