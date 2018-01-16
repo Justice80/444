@@ -62,15 +62,12 @@
         let inputConfirm = OverDrive.Stages.InputConfirm.Create();
         let mainGame = OverDrive.Stages.MainGame.Create();
         let settings = OverDrive.Stages.Config.Create();
-        let leaderboard = OverDrive.Stages.Leaderboard.Create();
         
         splashScreen.setTransition('mainMenu', mainMenu);
         mainMenu.setTransition('credits', credits);
         mainMenu.setTransition('mainGame', inputConfirm);
         mainMenu.setTransition('config', settings);
-        mainMenu.setTransition('highScores', leaderboard);
         
-        leaderboard.setTransition('mainMenu', mainMenu);
         credits.setTransition('mainMenu', mainMenu);
         inputConfirm.setTransition('mainGame', mainGame);
         inputConfirm.setTransition('mainMenu', mainMenu);
@@ -113,7 +110,6 @@
     <!--<script src='Engine/overdrive.stages.min.js'></script>-->
     <script src='Engine/src/Stages/config_stage.js'></script>
     <script src='Engine/src/Stages/credits_stage.js'></script>
-    <script src='Engine/src/Stages/highscores_stage.js'></script>
     <script src='Engine/src/Stages/inputconfirm_stage.js'></script>
     <script src='Engine/src/Stages/splashscreen_stage.js'></script>
     <script src='Engine/src/Stages/maingame_stage.js'></script>
