@@ -93,7 +93,7 @@ OverDrive.Stages.MainMenu = (function(stage, canvas, context) {
       
           { optionNumber : overdrive.Keys.K_1, optionText : '1. Start Game', target : 'mainGame' },
           { optionNumber : overdrive.Keys.K_2, optionText : '2. Settings', target : 'config' },
-          { optionNumber : overdrive.Keys.K_4, optionText : '3. Credits', target : 'credits' }
+          { optionNumber : overdrive.Keys.K_3, optionText : '3. Credits', target : 'credits' }
         ];
       }
       
