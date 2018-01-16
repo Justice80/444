@@ -134,10 +134,17 @@ OverDrive.Pickup = (function(lib, canvas, context) {
     if (pickupTime <= 0) {
       
       let rIndex = Math.floor(Math.random() * (regions.length - 1));
-      let pos = Matter.Vertices.centre(regions[rIndex].collisionModel.vertices);
+      //let pos = Matter.Vertices.centre(regions[rIndex].collisionModel.vertices);
       
-      pos.x *= canvas.width;
-      pos.y *= canvas.height;
+      //pos.x *= canvas.width;
+      //pos.y *= canvas.height;
+
+      //y => 44 
+      //x => 51
+      // 608 x 405 
+      //y => 44-361
+      //x => 51-557
+      let pos = { x : (Math.random() * (700 - 50)) + 50, y : (Math.random() * (500 - 50)) + 50};
       
       let keys = Object.keys(pickupTypes);
       let numKeys = keys.length;
