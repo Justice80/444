@@ -144,7 +144,7 @@ OverDrive.Pickup = (function(lib, canvas, context) {
       // 608 x 405 
       //y => 44-361
       //x => 51-557
-      let pos = { x : (Math.random() * (700 - 50)) + 50, y : (Math.random() * (500 - 50)) + 50};
+      let pos = { x : (Math.random() * (750 - 50)) + 50, y : (Math.random() * (550 - 50)) + 50};
       
       let keys = Object.keys(pickupTypes);
       let numKeys = keys.length;
