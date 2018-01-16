@@ -5,6 +5,7 @@
 var music1 = null;
 var music2 = null;
 var music3 = null;
+var music4 = null;
 
 
 function loadDemoSoundAsync(soundURL, fn) {
@@ -330,19 +331,24 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     // Audio API
     
     this.playMusic1 = function() {
-      
-      music1.play(0, self.playMusic1);
+      console.log("Playing sound 1");
+      music1.play(0, self.playMusic2);
     }
     
-    /*this.playMusic2 = function() {
-      
-      music2.play(0, self.playMusic3);
+    this.playMusic2 = function() {
+      console.log("Playing sound 2");
+      music2.play(0, self.playMusic1);
     }
     
     this.playMusic3 = function() {
-      
-      music3.play(0, self.playMusic2);
-    }*/
+      console.log("Playing sound 3");
+      music3.play(0, self.playMusic4);
+    }
+
+    this.playMusic4 = function() {
+      console.log("Playing sound 4");
+      music4.play(0, self.playMusic3);
+    }
     
     
     this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -365,19 +371,26 @@ OverDrive.Game = (function(gamelib, canvas, context) {
         self.playMusic1();
       });
       
-      /*loadDemoSoundAsync('Assets/Sounds/Mason_and_jack.m4a', function(buffer) {
+      loadDemoSoundAsync('Assets/Sounds/football_chant2.mp3', function(buffer) {
         
         music2 = new gamelib.AudioResource(buffer);
 
         self.playMusic2();
       });
       
-      loadDemoSoundAsync('Assets/Sounds/Kory_music.m4a', function(buffer) {
+      loadDemoSoundAsync('Assets/Sounds/football_chant3.mp3', function(buffer) {
         
         music3 = new gamelib.AudioResource(buffer);
 
         self.playMusic3();
-      });*/
+      });
+
+      loadDemoSoundAsync('Assets/Sounds/football_chant4.mp3', function(buffer) {
+        
+        music4 = new gamelib.AudioResource(buffer);
+
+        self.playMusic4();
+      });
     }
     
     
