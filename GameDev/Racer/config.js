@@ -19,7 +19,7 @@ const player_rotate_speed = 0.8; // Bigger number = faster!
 
 const pickup_sprite_scale = 0.75; // Bigger number = larger sprite!
 
-const pickup_time_delay = 3; // Delay (in seconds) between coins appearing
+const pickup_time_delay = 5; // Delay (in seconds) between coins appearing
 
 
 const points_on_hit = 100; // depricated
@@ -30,4 +30,4 @@ const frictionCoeff = 0.025; // depricated
 const bulletRechargeTime = 1; // depricated
 const bullet_scale = 1.5; // depricated
 const bullet_lifespan = 200; // depricated
-const fps = 60; // depricated 
+const fps = 60; // depricated
