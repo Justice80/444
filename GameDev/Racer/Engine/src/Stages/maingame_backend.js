@@ -175,7 +175,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
                             world : overdrive.engine.world,
                             mass : player_mass,
                             boundingVolumeScale : 0.75,
-                            collisionGroup : -2
+                            collisionGroup : -3
 						}	);
 		console.log('created a ball');
   }
