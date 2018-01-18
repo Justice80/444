@@ -91,7 +91,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     context.fillText(player2.pid, canvas.width * 0.8 - textMetrics.width / 2, 50);
     
     
-    context.font = '24px Amatic SC';
+    context.font = '28px Amatic SC';
     
     var textMetrics = context.measureText('Points: ' + player1.score);
     context.fillText('Points: ' + player1.score, canvas.width * 0.2 - textMetrics.width / 2, 110);
@@ -100,14 +100,14 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     context.fillText('Points: ' + player2.score, canvas.width * 0.8 - textMetrics.width / 2, 110);
     
     
-    var p1Lap = Math.min(player1.pathLocation.currentIteration + 1, maxLaps);
-    var p2Lap = Math.min(player2.pathLocation.currentIteration + 1, maxLaps);
+   // var p1Lap = Math.min(player1.pathLocation.currentIteration + 1, maxLaps);
+    //var p2Lap = Math.min(player2.pathLocation.currentIteration + 1, maxLaps);
     
-    var textMetrics = context.measureText('Lap: ' + p1Lap);
-    context.fillText('Lap: ' + p1Lap, canvas.width * 0.2 - textMetrics.width / 2, 80);
+   // var textMetrics = context.measureText('Lap: ' + p1Lap);
+   // context.fillText('Lap: ' + p1Lap, canvas.width * 0.2 - textMetrics.width / 2, 80);
     
-    var textMetrics = context.measureText('Lap: ' + p2Lap);
-    context.fillText('Lap: ' + p2Lap, canvas.width * 0.8 - textMetrics.width / 2, 80);
+   // var textMetrics = context.measureText('Lap: ' + p2Lap);
+   // context.fillText('Lap: ' + p2Lap, canvas.width * 0.8 - textMetrics.width / 2, 80);
     
     // Draw main clock
     
