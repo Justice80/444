@@ -109,7 +109,23 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
     self.orthoCamera = new OverDrive.Game.OrthoCamera(OverDrive.Game.CameraMode.Normal);
   }
   
-  
+    stage.MainGame.prototype.createBall = function() {
+	  var self = this;
+	  var track = tracks[self.trackIndex];
+	  
+	  self.ball = new OverDrive.Game.Ball( {
+                            x : track.ball.pos.x * canvas.width,
+                            y : track.ball.pos.y * canvas.height,
+							scale : track.ball.scale,
+                            spriteURI : track.ball.ballImageURI,
+                            world : overdrive.engine.world,
+                            mass : player_mass,
+                            boundingVolumeScale : 0.75,
+                            collisionGroup : 1
+						}	);
+		console.log(self.ball.goal);
+  }
+
   stage.MainGame.prototype.createPlayer1 = function() {
     
     var self = this;
@@ -134,6 +150,20 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
                             },
                             postUpdate : function(player, deltaTime, env) {}
                           } );
+						  
+	self.player2Goal = new OverDrive.Game.Goal( {
+							x : track.player2Goal.pos.x * canvas.width,
+							y : track.player2Goal.pos.y * canvas.height,
+							scale : track.player2Goal.scale,
+							spriteURI : track.player2Goal.goalImageURI,
+							world : overdrive.engine.world,
+							mass : player_mass,
+							boundingVolumeScale : 0.75,
+							collisionGroup: -1
+						}	);
+	console.log('Created opposing goal for player 1 to shoot on');
+	
+	self.player2Goal.opposingPlayer = self.player1;
   }
   
   
@@ -154,30 +184,27 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
                             world : overdrive.engine.world,
                             mass : player_mass,
                             boundingVolumeScale : 0.75,
-                            collisionGroup : -2,
+                            collisionGroup : -1,
                             preUpdate : function(player, deltaTime, env) {
                               
                               self.updatePlayer2(player, deltaTime, env);
                             },
                             postUpdate : function(player, deltaTime, env) {}
                           } );
-  }
-  
-  stage.MainGame.prototype.createBall = function() {
-	  var self = this;
-	  var track = tracks[self.trackIndex];
-	  
-	  self.ball = new OverDrive.Game.Ball( {
-                            x : track.ball.pos.x * canvas.width,
-                            y : track.ball.pos.y * canvas.height,
-							scale : track.ball.scale,
-                            spriteURI : track.ball.ballImageURI,
-                            world : overdrive.engine.world,
-                            mass : player_mass,
-                            boundingVolumeScale : 0.75,
-                            collisionGroup : -3
+						  
+	self.player1Goal = new OverDrive.Game.Goal( {
+							x : track.player1Goal.pos.x * canvas.width,
+							y : track.player1Goal.pos.y * canvas.height,
+							scale : track.player1Goal.scale,
+							spriteURI : track.player1Goal.goalImageURI,
+							world : overdrive.engine.world,
+							mass : player_mass,
+							boundingVolumeScale : 0.75,
+							collisionGroup: -1
 						}	);
-		console.log('created a ball');
+	console.log('Created opposing goal for player 2 to shoot on');
+	
+	self.player1Goal.opposingPlayer = self.player2;
   }
   
   stage.MainGame.prototype.startClock = function() {
@@ -230,6 +257,27 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
   stage.MainGame.prototype.player1CrossedFinishLine = function() {
   
     var self = this;
+	
+	if(self.ball.goal == true){
+		self.ball = null;
+		
+		var track = tracks[self.trackIndex];
+		
+		self.ball = new OverDrive.Game.Ball( {
+                            x : track.ball.pos.x * canvas.width,
+                            y : track.ball.pos.y * canvas.height,
+							scale : track.ball.scale,
+                            spriteURI : track.ball.ballImageURI,
+                            world : overdrive.engine.world,
+                            mass : player_mass,
+                            boundingVolumeScale : 0.75,
+                            collisionGroup : 1
+						}	);
+						
+		self.ball.pathLocation = self.path.initPathPlacement();
+						
+		self.ball.draw();
+	}
     
     if (self.player1.score >= 444) {
       
@@ -247,6 +295,28 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
   stage.MainGame.prototype.player2CrossedFinishLine = function() {
     
     var self = this;
+	
+	if(self.ball.goal == true){
+		self.ball = null;
+		
+		var track = tracks[self.trackIndex];
+		
+		self.ball = new OverDrive.Game.Ball( {
+                            x : track.ball.pos.x * canvas.width,
+                            y : track.ball.pos.y * canvas.height,
+							scale : track.ball.scale,
+                            spriteURI : track.ball.ballImageURI,
+                            world : overdrive.engine.world,
+                            mass : player_mass,
+                            boundingVolumeScale : 0.75,
+                            collisionGroup : 1
+						}	);
+						
+		self.ball.pathLocation = self.path.initPathPlacement();
+						
+		self.ball.draw();
+	}
+    
     
     if (self.player2.score >= 444) {
       
@@ -274,7 +344,6 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
     
     window.requestAnimationFrame(self.initPhaseOut);
   }
-  
   
   return stage;
   

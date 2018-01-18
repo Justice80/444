@@ -219,6 +219,8 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
       self.player1.pathLocation = self.path.initPathPlacement();
       self.player2.pathLocation = self.path.initPathPlacement();
       self.ball.pathLocation = self.path.initPathPlacement();
+	  self.player1Goal.pathLocation = self.path.initPathPlacement();
+	  self.player2Goal.pathLocation = self.path.initPathPlacement();
       
       
       // Setup gravity configuration for this stage
@@ -560,6 +562,17 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
         
         self.ball.draw();
       }
+	  
+	  // Draw player 1's goal
+	  if(self.player1Goal){
+		  
+		  self.player1Goal.draw();
+	  }
+	  
+	  if(self.player2Goal){
+		  
+		  self.player2Goal.draw();
+	  }
       
       // Render pickups
       OverDrive.Game.drawObjects(self.pickupArray);
