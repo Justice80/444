@@ -231,7 +231,7 @@ OverDrive.Stages.MainGame = (function(stage, canvas, context) {
   
     var self = this;
     
-    if (self.player1.sccore >= 444) {
+    if (self.player1.score >= 444) {
       
       self.winner = self.player1;
       self.levelComplete = true;
