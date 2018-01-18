@@ -24,13 +24,13 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 				self.mBody = Bodies.circle(config.x, config.y, size.width, size.height);
 				self.size = size;
 				
-				Body.setMass(self.mBody, 0.25);
+				Body.setMass(self.mBody, 0.10);
 				
 				self.mBody.collisionFilter.group = config.collisionGroup;
 				self.mBody.collisionFilter.category = OverDrive.Game.CollisionModel.Player.Category;
 				self.mBody.collisionFilter.mask = OverDrive.Game.CollisionModel.Player.Mask;
 				
-				self.mBody.frictionAir = track_friction;
+				self.mBody.frictionAir = 0.01;
 				
 				self.mBody.hostObject = self;
 				
@@ -189,6 +189,10 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     }
 	
 	
+	// POINTS FUNCTION (USELESS?)
+	this.addPoints = function(scoreDelta) {
+		console.log('ball hit pickup');
+	}
 	
 	}
 	
