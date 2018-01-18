@@ -12,6 +12,8 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 			
 		var self = this;
 		
+		this.goal = false;
+		
 		this.scale = config.scale;
 		this.mBody = null;
 		this.size = null;
@@ -166,6 +168,8 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 	
 	this.doCollision = function(otherBody, env) { 
 	
+	console.log('ball hit');
+	
       otherBody.collideWithPlayer(this, {
         
         objA : env.objB,
@@ -175,7 +179,10 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     }
 	
 	this.collideWithPlayer = function(otherPlayer, env) {
-
+		if(otherPlayer instanceof gamelib.Goal){
+			otherPlayer.opposingPlayer.addPoints(100);
+			this.goal = true;
+		}
     }
 	
 	this.collideWithPath = function(path, env){ 

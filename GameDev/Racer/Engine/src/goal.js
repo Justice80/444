@@ -12,6 +12,8 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 			
 		var self = this;
 		
+		var opposingPlayer = null;
+		
 		this.scale = config.scale;
 		this.mBody = null;
 		this.size = null;
@@ -21,7 +23,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 			function(w, h) {
 				let size = { width: w * self.scale * config.boundingVolumeScale, height : h * self.scale * config.boundingVolumeScale };
 				
-				self.mBody = Bodies.circle(config.x, config.y, size.width, size.height);
+				self.mBody = Bodies.rectangle(config.x, config.y, size.width, size.height);
 				self.size = size;
 				
 				Body.setMass(self.mBody, 1);
@@ -126,3 +128,39 @@ OverDrive.Game = (function(gamelib, canvas, context) {
         context.stroke();
 		}
 	}
+	
+	//
+	// COLLISIONS
+	//
+	
+	this.doCollision = function(otherBody, env) {
+		
+		console.log('goal hit');
+		
+      otherBody.collideWithPlayer(this, {
+        
+        objA : env.objB,
+        objB : env.objA,
+        host : env.host
+      });
+    }
+	
+	this.collideWithPlayer = function(otherPlayer, env) {
+		console.log('it hit a goal');
+    }
+	
+	this.collideWithPath = function(path, env){ 
+	
+      path.collideWithPlayer(this, {
+        
+        objA : env.objB,
+        objB : env.objA,
+        host : env.host
+      });
+    }
+	
+	}
+	
+	return gamelib;
+	
+})((OverDrive.Game || {}), OverDrive.canvas, OverDrive.context);

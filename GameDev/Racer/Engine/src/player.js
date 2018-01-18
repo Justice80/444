@@ -213,8 +213,6 @@ OverDrive.Game = (function(gamelib, canvas, context) {
     
     this.doCollision = function(otherBody, env) {
 	
-	console.log('test');
-	
       otherBody.collideWithPlayer(this, {
         
         objA : env.objB,
