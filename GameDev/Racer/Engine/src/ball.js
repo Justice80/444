@@ -198,6 +198,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
       });
     }
 	
+	this.collideWithPickup = function(otherPickup, env) {}
 	
 	// POINTS FUNCTION (USELESS?)
 	this.addPoints = function(scoreDelta) {
