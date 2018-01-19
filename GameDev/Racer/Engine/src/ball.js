@@ -13,6 +13,7 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 		var self = this;
 		
 		this.goal = false;
+		this.canScore = true;
 		
 		this.scale = config.scale;
 		this.mBody = null;
@@ -180,8 +181,10 @@ OverDrive.Game = (function(gamelib, canvas, context) {
 	
 	this.collideWithPlayer = function(otherPlayer, env) {
 		if(otherPlayer instanceof gamelib.Goal){
-			otherPlayer.opposingPlayer.addPoints(100);
+			if(this.canScore)
+				otherPlayer.opposingPlayer.addPoints(100);
 			this.goal = true;
+			this.canScore = false;
 		}
     }
 	
